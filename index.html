@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Pocket</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <!-- Auth Page -->
+    <div id="authPage" class="auth-container">
+        <div class="auth-box">
+            <div class="auth-logo">
+                <h1>🎓 Mind Pocket</h1>
+                <p>Your Financial & Well-being Digital Ally</p>
+            </div>
+
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="switchTab('login')">Login</button>
+                <button class="auth-tab" onclick="switchTab('signup')">Sign Up</button>
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" placeholder="your.email@university.edu" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn-primary">Login to Dashboard</button>
+            </form>
+
+            <form id="signupForm" style="display:none;">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">University Email</label>
+                    <input type="email" id="signupEmail" placeholder="your.email@university.edu" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Create Password</label>
+                    <input type="password" id="signupPassword" placeholder="Minimum 8 characters" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupConfirm">Confirm Password</label>
+                    <input type="password" id="signupConfirm" placeholder="Re-enter password" required>
+                </div>
+                <button type="submit" class="btn-primary">Create Account</button>
+            </form>
+        </div>
+
+        <button class="skip-btn" onclick="skipAuth()">Skip →</button>
+    </div>
+
+    <!-- Main Website -->
+    <div id="mainSite" style="display:none;">
+        <header>
+            <nav>
+                <div class="logo">🎓 Mind Pocket</div>
+                <ul class="nav-links">
+                    <li><a onclick="showPage('home')">Home</a></li>
+                    <li><a onclick="showPage('finances')">Finances</a></li>
+                    <li><a onclick="showPage('wellbeing')">Well-being</a></li>
+                    <li><a onclick="showPage('housing')">Housing</a></li>
+                    <li><a onclick="showPage('resources')">Resources</a></li>
+                    <li><a onclick="showPage('community')">Community</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Home Page -->
+        <div id="homePage" class="page active">
+            <div class="hero">
+                <h1>Your Personalized Student Journey Starts Here</h1>
+                <p>A centralized platform that integrates financial management, mental wellness, and university resources—designed exclusively for international students.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-white" onclick="showPage('finances')">Explore Financial Tools</button>
+                    <button class="btn btn-outline" onclick="showPage('wellbeing')">Discover Well-being</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Why Mind Pocket?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">💰</div>
+                        <h3>Smart Finance Management</h3>
+                        <p>Track spending, discover local discounts, and get personalized budget insights to manage your finances effortlessly.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🧘</div>
+                        <h3>Mental Well-being</h3>
+                        <p>Access counseling, wellness workshops, and community support—all from one unified platform.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📚</div>
+                        <h3>Resource Hub</h3>
+                        <p>Book appointments, find academic support, and navigate university services seamlessly.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Proactive Guidance</h3>
+                        <p>Receive timely reminders and personalized tips based on your semester schedule and needs.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🤝</div>
+                        <h3>Community Challenges</h3>
+                        <p>Join gamified challenges with fellow students to build healthy habits and save money together.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌱</div>
+                        <h3>Sustainable Living</h3>
+                        <p>Promote eco-friendly choices with local shopping tips and reduce your carbon footprint.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <h2 style="margin-bottom: 50px; font-size: 36px;">Making a Real Impact</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>85%</h3>
+                        <p>Reduction in financial stress</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>2,500+</h3>
+                        <p>Active student users</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>$450</h3>
+                        <p>Average monthly savings</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>95%</h3>
+                        <p>User satisfaction rate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Finances Page -->
+        <div id="financesPage" class="page">
+            <div class="hero" style="padding: 60px 30px;">
+                <h1>Take Control of Your Finances</h1>
+                <p>Smart tools and insights to help you spend wisely and save more</p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Your Financial Dashboard</h2>
+                
+                <div class="dashboard-grid">
+                    <!-- Expense Tracker -->
+                    <div class="dashboard-card">
+                        <h3>
+                            💳 Expense Tracker
+                            <button class="btn btn-secondary" onclick="openModal('expenseModal')">+ Add</button>
+                        </h3>
+                        <div id="expenseList"></div>
+                    </div>
+
+                    <!-- Budget Goals -->
+                    <div class="dashboard-card">
+                        <h3>
+                            🎯 Budget Goals
+                            <button class="btn btn-secondary" onclick="openModal('goalModal')">+ Add</button>
+                        </h3>
+                        <div id="goalList"></div>
+                    </div>
+                </div>
+
+                <div class="info-card" style="margin-top: 40px;">
+                    <h3>📊 Smart Features</h3>
+                    <ul>
+                        <li>Track your daily expenses across different categories</li>
+                        <li>Set monthly budget goals and monitor progress</li>
+                        <li>Get insights based on anonymized spending data from peers</li>
+                        <li>Discover local deals and student discounts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Well-being Page -->
+        <div id="wellbeingPage" class="page">
+            <div class="hero" style="padding: 60px 30px; background: linear-gradient(135deg, #10B981 0%, #059669 100%);">
+                <h1>Your Mental Health Matters</h1>
+                <p>Comprehensive support for your emotional and psychological well-being</p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Well-being Resources</h2>
+
+                <div class="dashboard-grid">
+                    <!-- Appointments -->
+                    <div class="dashboard-card">
+                        <h3>
+                            📅 My Appointments
+                            <button class="btn btn-secondary" onclick="openModal('appointmentModal')">+ Book</button>
+                        </h3>
+                        <div id="appointmentList"></div>
+                    </div>
+
+                    <!-- Community Challenges -->
+                    <div class="dashboard-card">
+                        <h3>🏆 Active Challenges</h3>
+                        <div class="info-card">
+                            <h4 style="font-size: 16px; margin-bottom: 8px;">🚶 10K Steps Daily</h4>
+                            <p style="font-size: 14px; color: var(--text-light);">Walk 10,000 steps every day for a week. 523 students participating!</p>
+                            <button class="btn btn-secondary" style="margin-top: 10px; width: 100%;">Join Challenge</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card" style="margin-top: 40px;">
+                    <h3>🩺 Available Services</h3>
+                    <ul>
+                        <li>One-on-one counseling sessions with licensed therapists</li>
+                        <li>Group therapy and peer support circles</li>
+                        <li>Stress management and mindfulness workshops</li>
+                        <li>24/7 crisis helpline and emergency support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Housing Page -->
+        <div id="housingPage" class="page">
+            <div class="hero" style="padding: 60px 30px; background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);">
+                <h1>Find Your Perfect Student Housing</h1>
+                <p>Discover affordable rentals near campus with verified student-friendly landlords</p>
+            </div>
+
+            <div class="section">
+                <div class="filter-section">
+                    <h3 style="margin-bottom: 15px;">🔍 Filter Rentals</h3>
+                    <div class="filter-grid">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label>Max Price</label>
+                            <select id="priceFilter" onchange="filterRentals()">
+                                <option value="all">All Prices</option>
+                                <option value="500">Under $500</option>
+                                <option value="800">Under $800</option>
+                                <option value="1000">Under $1000</option>
+                                <option value="1500">Under $1500</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label>Location</label>
+                            <select id="locationFilter" onchange="filterRentals()">
+                                <option value="all">All Locations</option>
+                                <option value="campus">Near Campus</option>
+                                <option value="downtown">Downtown</option>
+                                <option value="suburb">Suburban</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label>Bedrooms</label>
+                            <select id="bedroomFilter" onchange="filterRentals()">
+                                <option value="all">Any</option>
+                                <option value="1">1 Bedroom</option>
+                                <option value="2">2 Bedrooms</option>
+                                <option value="3">3+ Bedrooms</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label>Type</label>
+                            <select id="typeFilter" onchange="filterRentals()">
+                                <option value="all">All Types</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="shared">Shared House</option>
+                                <option value="studio">Studio</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card" style="margin-bottom: 30px;">
+                    <h3>📌 Quick Filters</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+                        <button class="amenity-tag" style="cursor: pointer; border: 2px solid var(--primary); background: white;" onclick="toggleAmenityFilter('furnished')">🛋️ Furnished</button>
+                        <button class="amenity-tag" style="cursor: pointer; border: 2px solid var(--primary); background: white;" onclick="toggleAmenityFilter('wifi')">📶 WiFi Included</button>
+                        <button class="amenity-tag" style="cursor: pointer; border: 2px solid var(--primary); background: white;" onclick="toggleAmenityFilter('parking')">🚗 Parking</button>
+                        <button class="amenity-tag" style="cursor: pointer; border: 2px solid var(--primary); background: white;" onclick="toggleAmenityFilter('laundry')">🧺 Laundry</button>
+                        <button class="amenity-tag" style="cursor: pointer; border: 2px solid var(--primary); background: white;" onclick="toggleAmenityFilter('pets')">🐾 Pet Friendly</button>
+                    </div>
+                </div>
+
+                <h2 class="section-title" style="text-align: left; margin-bottom: 25px;">Available Rentals <span id="rentalCount" style="color: var(--text-light); font-size: 20px;"></span></h2>
+                
+                <div id="rentalsGrid" class="rentals-grid"></div>
+            </div>
+        </div>
+
+        <!-- Resources Page -->
+        <div id="resourcesPage" class="page">
+            <div class="hero" style="padding: 60px 30px; background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);">
+                <h1>Everything You Need, One Place</h1>
+                <p>Unified access to all university resources and services</p>
+            </div>
+
+            <div class="section content-section">
+                <h2>Quick Access Resources</h2>
+
+                <div class="dashboard-grid">
+                    <div class="info-card">
+                        <h3>🎓 Academic Support</h3>
+                        <ul>
+                            <li>Writing Center</li>
+                            <li>Math Tutoring</li>
+                            <li>Library Services</li>
+                            <li>Study Rooms</li>
+                        </ul>
+                        <button class="btn btn-secondary" style="width: 100%; margin-top: 15px;">Book Session</button>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>💼 Career Services</h3>
+                        <ul>
+                            <li>Resume Review</li>
+                            <li>Mock Interviews</li>
+                            <li>Job Board</li>
+                            <li>Networking Events</li>
+                        </ul>
+                        <button class="btn btn-secondary" style="width: 100%; margin-top: 15px;">Schedule Appointment</button>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>🏢 Administrative</h3>
+                        <ul>
+                            <li>Student ID Services</li>
+                            <li>Visa Support</li>
+                            <li>Transcript Requests</li>
+                            <li>Financial Aid</li>
+                        </ul>
+                        <button class="btn btn-secondary" style="width: 100%; margin-top: 15px;">Contact Office</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Community Page -->
+        <div id="communityPage" class="page">
+            <div class="hero" style="padding: 60px 30px; background: linear-gradient(135deg, #EC4899 0%, #BE185D 100%);">
+                <h1>Join the Mind Pocket Community</h1>
+                <p>Connect, share, and grow together with thousands of international students</p>
+            </div>
+
+            <div class="section content-section">
+                <h2>Community Hub</h2>
+
+                <div class="info-card">
+                    <h3>🏆 Leaderboard - Top Savers This Month</h3>
+                    <div style="margin-top: 20px;">
+                        <div style="display: flex; justify-content: space-between; padding: 12px; background: #FEF3C7; border-radius: 8px; margin-bottom: 10px;">
+                            <span>🥇 Anonymous User #247</span>
+                            <strong>$680 saved</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 12px; background: #E5E7EB; border-radius: 8px; margin-bottom: 10px;">
+                            <span>🥈 Anonymous User #1523</span>
+                            <strong>$595 saved</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 12px; background: #FED7AA; border-radius: 8px;">
+                            <span>🥉 Anonymous User #892</span>
+                            <strong>$542 saved</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3>💡 Success Stories</h3>
+                    <div style="margin-top: 15px;">
+                        <blockquote style="border-left: 3px solid var(--primary); padding-left: 15px; margin: 15px 0; font-style: italic; color: var(--text-light);">
+                            "Mind Pocket helped me save over $500 in my first month by showing me local grocery deals I never knew existed!" - Sarah, Engineering Student
+                        </blockquote>
+                        <blockquote style="border-left: 3px solid var(--secondary); padding-left: 15px; margin: 15px 0; font-style: italic; color: var(--text-light);">
+                            "The counseling booking feature made it so easy to get help when I needed it. No more navigating confusing websites!" - Ahmed, Business Student
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3>🌍 Sustainability Impact</h3>
+                    <div style="margin-top: 15px;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; text-align: center;">
+                            <div>
+                                <div style="font-size: 32px; font-weight: 700; color: var(--secondary);">1,247</div>
+                                <div style="font-size: 14px; color: var(--text-light);">Home meals cooked</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 32px; font-weight: 700; color: var(--secondary);">8,543</div>
+                                <div style="font-size: 14px; color: var(--text-light);">Carpools arranged</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 32px; font-weight: 700; color: var(--secondary);">2.3T</div>
+                                <div style="font-size: 14px; color: var(--text-light);">CO2 saved</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+    <!-- Modals -->
+    <!-- Add Expense Modal -->
+    <div id="expenseModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Expense</h2>
+                <button class="close-btn" onclick="closeModal('expenseModal')">&times;</button>
+            </div>
+            <form id="expenseForm">
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" id="expenseDesc" placeholder="e.g., Weekly groceries" required>
+                </div>
+                <div class="form-group">
+                    <label>Amount ($)</label>
+                    <input type="number" id="expenseAmount" placeholder="0.00" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select id="expenseCategory" required>
+                        <option value="">Select category</option>
+                        <option value="groceries">Groceries</option>
+                        <option value="transport">Transport</option>
+                        <option value="dining">Dining Out</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" id="expenseDate" required>
+                </div>
+                <button type="submit" class="btn-primary">Add Expense</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Goal Modal -->
+    <div id="goalModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Set Budget Goal</h2>
+                <button class="close-btn" onclick="closeModal('goalModal')">&times;</button>
+            </div>
+            <form id="goalForm">
+                <div class="form-group">
+                    <label>Goal Name</label>
+                    <input type="text" id="goalName" placeholder="e.g., Monthly Food Budget" required>
+                </div>
+                <div class="form-group">
+                    <label>Target Amount ($)</label>
+                    <input type="number" id="goalAmount" placeholder="500.00" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select id="goalCategory" required>
+                        <option value="">Select category</option>
+                        <option value="groceries">Groceries</option>
+                        <option value="transport">Transport</option>
+                        <option value="dining">Dining Out</option>
+                        <option value="overall">Overall Monthly</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Set Goal</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Appointment Modal -->
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Book Appointment</h2>
+                <button class="close-btn" onclick="closeModal('appointmentModal')">&times;</button>
+            </div>
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label>Service Type</label>
+                    <select id="appointmentType" required>
+                        <option value="">Select service</option>
+                        <option value="counseling">Counseling Session</option>
+                        <option value="financial">Financial Advising</option>
+                        <option value="career">Career Counseling</option>
+                        <option value="health">Health Clinic</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Preferred Date</label>
+                    <input type="date" id="appointmentDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Preferred Time</label>
+                    <input type="time" id="appointmentTime" required>
+                </div>
+                <div class="form-group">
+                    <label>Notes (Optional)</label>
+                    <textarea id="appointmentNotes" placeholder="Any specific concerns or topics to discuss"></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Book Appointment</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Data Storage
+        let expenses = [];
+        let goals = [];
+        let appointments = [];
+        let rentals = [];
+        let selectedAmenities = [];
+
+        // Initialize with sample data
+        function initializeSampleData() {
+            expenses = [
+                { id: 1, desc: 'Weekly groceries', amount: 85.50, category: 'groceries', date: '2024-10-12' },
+                { id: 2, desc: 'Bus pass', amount: 45.00, category: 'transport', date: '2024-10-10' }
+            ];
+            goals = [
+                { id: 1, name: 'Monthly Food Budget', amount: 400, category: 'groceries', current: 85.50 }
+            ];
+            appointments = [
+                { id: 1, type: 'counseling', date: '2024-10-20', time: '14:00', notes: 'Stress management' }
+            ];
+            rentals = [
+                { id: 1, title: 'Cozy Studio Near Campus', price: 650, location: 'campus', distance: '0.5 miles from campus', bedrooms: 1, type: 'studio', amenities: ['furnished', 'wifi', 'laundry'], icon: '🏠' },
+                { id: 2, title: 'Spacious 2BR Apartment', price: 950, location: 'downtown', distance: '2 miles from campus', bedrooms: 2, type: 'apartment', amenities: ['wifi', 'parking', 'laundry'], icon: '🏢' },
+                { id: 3, title: 'Shared House with Students', price: 450, location: 'campus', distance: '0.8 miles from campus', bedrooms: 3, type: 'shared', amenities: ['furnished', 'wifi', 'parking', 'laundry'], icon: '🏘️' },
+                { id: 4, title: 'Modern 1BR Downtown', price: 850, location: 'downtown', distance: '1.5 miles from campus', bedrooms: 1, type: 'apartment', amenities: ['furnished', 'wifi', 'parking', 'pets'], icon: '🌆' },
+                { id: 5, title: 'Budget-Friendly Studio', price: 550, location: 'suburb', distance: '3 miles from campus', bedrooms: 1, type: 'studio', amenities: ['wifi', 'laundry'], icon: '🏠' },
+                { id: 6, title: 'Luxury 2BR with Amenities', price: 1350, location: 'downtown', distance: '1 mile from campus', bedrooms: 2, type: 'apartment', amenities: ['furnished', 'wifi', 'parking', 'laundry', 'pets'], icon: '✨' },
+                { id: 7, title: 'Shared Room - Super Affordable', price: 350, location: 'campus', distance: '0.3 miles from campus', bedrooms: 3, type: 'shared', amenities: ['wifi', 'laundry'], icon: '🛏️' },
+                { id: 8, title: 'Quiet Suburban Home', price: 780, location: 'suburb', distance: '4 miles from campus', bedrooms: 2, type: 'apartment', amenities: ['furnished', 'parking', 'pets', 'laundry'], icon: '🏡' },
+                { id: 9, title: 'Student Housing Complex', price: 720, location: 'campus', distance: '0.2 miles from campus', bedrooms: 2, type: 'apartment', amenities: ['furnished', 'wifi', 'laundry'], icon: '🎓' }
+            ];
+            renderExpenses();
+            renderGoals();
+            renderAppointments();
+            renderRentals();
+        }
+
+        // Auth Page Functions
+        function switchTab(tab) {
+            const tabs = document.querySelectorAll('.auth-tab');
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            
+            tabs.forEach(t => t.classList.remove('active'));
+            
+            if (tab === 'login') {
+                tabs[0].classList.add('active');
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+            } else {
+                tabs[1].classList.add('active');
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+            }
+        }
+
+        function skipAuth() {
+            document.getElementById('authPage').style.display = 'none';
+            document.getElementById('mainSite').style.display = 'block';
+            initializeSampleData();
+        }
+
+        // Form Submissions
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Login simulation complete! Redirecting to dashboard...');
+            skipAuth();
+        });
+
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = document.getElementById('signupPassword').value;
+            const confirm = document.getElementById('signupConfirm').value;
+            
+            if (password !== confirm) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            if (password.length < 8) {
+                alert('Password must be at least 8 characters long!');
+                return;
+            }
+            
+            alert('Account created successfully! Welcome to Mind Pocket!');
+            skipAuth();
+        });
+
+        // Page Navigation
+        function showPage(pageName) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            const pageMap = {
+                'home': 'homePage',
+                'finances': 'financesPage',
+                'wellbeing': 'wellbeingPage',
+                'housing': 'housingPage',
+                'resources': 'resourcesPage',
+                'community': 'communityPage'
+            };
+            
+            const targetPage = document.getElementById(pageMap[pageName]);
+            if (targetPage) {
+                targetPage.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Modal Functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            const today = new Date().toISOString().split('T')[0];
+            if (modalId === 'expenseModal') {
+                document.getElementById('expenseDate').value = today;
+            }
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+            }
+        }
+
+        // Expense Functions
+        document.getElementById('expenseForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const expense = {
+                id: Date.now(),
+                desc: document.getElementById('expenseDesc').value,
+                amount: parseFloat(document.getElementById('expenseAmount').value),
+                category: document.getElementById('expenseCategory').value,
+                date: document.getElementById('expenseDate').value
+            };
+            
+            expenses.push(expense);
+            renderExpenses();
+            updateGoals(expense.amount, expense.category);
+            closeModal('expenseModal');
+            this.reset();
+        });
+
+        function renderExpenses() {
+            const list = document.getElementById('expenseList');
+            
+            if (expenses.length === 0) {
+                list.innerHTML = '<div class="empty-state">📝<p>No expenses yet. Add your first expense to start tracking!</p></div>';
+                return;
+            }
+            
+            list.innerHTML = expenses.map(exp => `
+                <div class="expense-item">
+                    <div class="item-info">
+                        <h4>${exp.desc}</h4>
+                        <p>${exp.date} <span class="badge badge-${exp.category}">${exp.category}</span></p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <span class="amount" style="color: var(--danger);">-${exp.amount.toFixed(2)}</span>
+                        <button class="icon-btn delete-btn" onclick="deleteExpense(${exp.id})">🗑️</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function deleteExpense(id) {
+            if (confirm('Are you sure you want to delete this expense?')) {
+                expenses = expenses.filter(exp => exp.id !== id);
+                renderExpenses();
+                recalculateGoals();
+            }
+        }
+
+        // Goal Functions
+        document.getElementById('goalForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const goal = {
+                id: Date.now(),
+                name: document.getElementById('goalName').value,
+                amount: parseFloat(document.getElementById('goalAmount').value),
+                category: document.getElementById('goalCategory').value,
+                current: 0
+            };
+            
+            goals.push(goal);
+            renderGoals();
+            closeModal('goalModal');
+            this.reset();
+        });
+
+        function renderGoals() {
+            const list = document.getElementById('goalList');
+            
+            if (goals.length === 0) {
+                list.innerHTML = '<div class="empty-state">🎯<p>No budget goals set. Create your first goal to track spending!</p></div>';
+                return;
+            }
+            
+            list.innerHTML = goals.map(goal => {
+                const percentage = Math.min((goal.current / goal.amount) * 100, 100);
+                const status = percentage > 100 ? 'Over Budget!' : `${percentage.toFixed(0)}% Used`;
+                const color = percentage > 90 ? 'var(--danger)' : percentage > 70 ? 'var(--accent)' : 'var(--secondary)';
+                
+                return `
+                    <div class="goal-item">
+                        <div class="item-info" style="flex: 1;">
+                            <h4>${goal.name}</h4>
+                            <p>${goal.current.toFixed(2)} / ${goal.amount.toFixed(2)}</p>
+                            <div style="background: var(--bg-light); height: 8px; border-radius: 4px; margin-top: 8px; overflow: hidden;">
+                                <div style="width: ${percentage}%; height: 100%; background: ${color}; transition: width 0.3s;"></div>
+                            </div>
+                            <p style="font-size: 12px; margin-top: 4px; color: ${color};">${status}</p>
+                        </div>
+                        <button class="icon-btn delete-btn" onclick="deleteGoal(${goal.id})">🗑️</button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function deleteGoal(id) {
+            if (confirm('Are you sure you want to delete this goal?')) {
+                goals = goals.filter(goal => goal.id !== id);
+                renderGoals();
+            }
+        }
+
+        function updateGoals(amount, category) {
+            goals.forEach(goal => {
+                if (goal.category === category || goal.category === 'overall') {
+                    goal.current += amount;
+                }
+            });
+            renderGoals();
+        }
+
+        function recalculateGoals() {
+            goals.forEach(goal => {
+                goal.current = expenses
+                    .filter(exp => exp.category === goal.category || goal.category === 'overall')
+                    .reduce((sum, exp) => sum + exp.amount, 0);
+            });
+            renderGoals();
+        }
+
+        // Appointment Functions
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const appointment = {
+                id: Date.now(),
+                type: document.getElementById('appointmentType').value,
+                date: document.getElementById('appointmentDate').value,
+                time: document.getElementById('appointmentTime').value,
+                notes: document.getElementById('appointmentNotes').value
+            };
+            
+            appointments.push(appointment);
+            renderAppointments();
+            closeModal('appointmentModal');
+            this.reset();
+            alert('Appointment request submitted! You will receive a confirmation email shortly.');
+        });
+
+        function renderAppointments() {
+            const list = document.getElementById('appointmentList');
+            
+            if (appointments.length === 0) {
+                list.innerHTML = '<div class="empty-state">📅<p>No appointments scheduled. Book your first session!</p></div>';
+                return;
+            }
+            
+            const typeLabels = {
+                'counseling': '🧘 Counseling',
+                'financial': '💰 Financial Advising',
+                'career': '💼 Career Counseling',
+                'health': '🏥 Health Clinic'
+            };
+            
+            list.innerHTML = appointments.map(apt => `
+                <div class="appointment-item">
+                    <div class="item-info">
+                        <h4>${typeLabels[apt.type]}</h4>
+                        <p>${apt.date} at ${apt.time}</p>
+                        ${apt.notes ? `<p style="font-size: 13px; margin-top: 4px;">${apt.notes}</p>` : ''}
+                    </div>
+                    <button class="icon-btn delete-btn" onclick="deleteAppointment(${apt.id})">🗑️</button>
+                </div>
+            `).join('');
+        }
+
+        function deleteAppointment(id) {
+            if (confirm('Are you sure you want to cancel this appointment?')) {
+                appointments = appointments.filter(apt => apt.id !== id);
+                renderAppointments();
+            }
+        }
+
+        // Housing/Rental Functions
+        function renderRentals() {
+            const grid = document.getElementById('rentalsGrid');
+            const priceFilter = document.getElementById('priceFilter')?.value || 'all';
+            const locationFilter = document.getElementById('locationFilter')?.value || 'all';
+            const bedroomFilter = document.getElementById('bedroomFilter')?.value || 'all';
+            const typeFilter = document.getElementById('typeFilter')?.value || 'all';
+            
+            let filtered = rentals.filter(rental => {
+                const priceMatch = priceFilter === 'all' || rental.price <= parseInt(priceFilter);
+                const locationMatch = locationFilter === 'all' || rental.location === locationFilter;
+                const bedroomMatch = bedroomFilter === 'all' || rental.bedrooms === parseInt(bedroomFilter) || (bedroomFilter === '3' && rental.bedrooms >= 3);
+                const typeMatch = typeFilter === 'all' || rental.type === typeFilter;
+                const amenityMatch = selectedAmenities.length === 0 || selectedAmenities.every(amenity => rental.amenities.includes(amenity));
+                
+                return priceMatch && locationMatch && bedroomMatch && typeMatch && amenityMatch;
+            });
+            
+            document.getElementById('rentalCount').textContent = `(${filtered.length} listings)`;
+            
+            if (filtered.length === 0) {
+                grid.innerHTML = '<div class="empty-state" style="grid-column: 1/-1;">🏠<p>No rentals match your filters. Try adjusting your search criteria!</p></div>';
+                return;
+            }
+            
+            const amenityIcons = {
+                'furnished': '🛋️ Furnished',
+                'wifi': '📶 WiFi',
+                'parking': '🚗 Parking',
+                'laundry': '🧺 Laundry',
+                'pets': '🐾 Pet Friendly'
+            };
+            
+            grid.innerHTML = filtered.map(rental => `
+                <div class="rental-card" onclick="viewRentalDetails(${rental.id})">
+                    <div class="rental-image">${rental.icon}</div>
+                    <div class="rental-body">
+                        <div class="rental-price">${rental.price}<span style="font-size: 16px; font-weight: 400; color: var(--text-light);">/mo</span></div>
+                        <div class="rental-title">${rental.title}</div>
+                        <div class="rental-location">📍 ${rental.distance}</div>
+                        <div style="font-size: 14px; color: var(--text-light); margin-bottom: 10px;">
+                            🛏️ ${rental.bedrooms} ${rental.bedrooms === 1 ? 'Bedroom' : 'Bedrooms'} • ${rental.type.charAt(0).toUpperCase() + rental.type.slice(1)}
+                        </div>
+                        <div class="rental-amenities">
+                            ${rental.amenities.map(amenity => `<span class="amenity-tag">${amenityIcons[amenity]}</span>`).join('')}
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 15px; padding: 10px;" onclick="event.stopPropagation(); contactLandlord(${rental.id})">Contact Landlord</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function filterRentals() {
+            renderRentals();
+        }
+        
+        function toggleAmenityFilter(amenity) {
+            const index = selectedAmenities.indexOf(amenity);
+            const buttons = document.querySelectorAll('.amenity-tag[style*="cursor: pointer"]');
+            
+            if (index > -1) {
+                selectedAmenities.splice(index, 1);
+                buttons.forEach(btn => {
+                    if (btn.textContent.toLowerCase().includes(amenity)) {
+                        btn.style.background = 'white';
+                        btn.style.color = 'var(--text-dark)';
+                    }
+                });
+            } else {
+                selectedAmenities.push(amenity);
+                buttons.forEach(btn => {
+                    if (btn.textContent.toLowerCase().includes(amenity)) {
+                        btn.style.background = 'var(--primary)';
+                        btn.style.color = 'white';
+                    }
+                });
+            }
+            
+            renderRentals();
+        }
+        
+        function viewRentalDetails(id) {
+            const rental = rentals.find(r => r.id === id);
+            if (rental) {
+                alert(`📋 ${rental.title}\n\n💰 Rent: ${rental.price}/month\n📍 Location: ${rental.distance}\n🛏️ Bedrooms: ${rental.bedrooms}\n🏠 Type: ${rental.type.charAt(0).toUpperCase() + rental.type.slice(1)}\n\n✨ Amenities:\n${rental.amenities.map(a => '• ' + a.charAt(0).toUpperCase() + a.slice(1)).join('\n')}\n\nClick "Contact Landlord" to schedule a viewing!`);
+            }
+        }
+        
+        function contactLandlord(id) {
+            const rental = rentals.find(r => r.id === id);
+            if (rental) {
+                alert(`📧 Contact request sent for "${rental.title}"!\n\nThe landlord will reach out to you within 24 hours to schedule a viewing.\n\nYou'll receive an email confirmation shortly.`);
+            }
+        }
+
+        // Show auth page on load
+        window.addEventListener('load', function() {
+            document.getElementById('authPage').style.display = 'flex';
+            document.getElementById('mainSite').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
